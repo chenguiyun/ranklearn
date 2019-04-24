@@ -28,7 +28,8 @@ namespace ConsoleApp1
             //array[2] = new[] { 4,5,6 };
             //array[3] = new[] { 10,8,-12 };
             //diagonalDifference(array);
-            staircase(6);
+            //staircase(6);
+            timeConversion("12:40:22AM");
             Console.WriteLine();
             Console.ReadKey();
         }
@@ -209,6 +210,67 @@ namespace ConsoleApp1
             a = all-li[0];
             b = all-li[li.Count-1];
             Console.Write($"{b} {a}");
+        }
+
+        static int birthdayCakeCandles(int[] ar)
+        {
+            var re = 0;
+            var li = ar.ToList();
+            li.Sort();
+            re = li.Count(t => t.Equals(li[li.Count - 1]));
+            return re;
+        }
+
+        static string timeConversion(string s)
+        {
+            /*
+             * Write your code here.
+             */
+            bool ispm = false;
+            bool isAm = false;
+            foreach (var g in s)
+            {
+                if (g.ToString()=="P")
+                {
+                    ispm = true;
+                }
+                if (g.ToString() == "A")
+                {
+                    isAm = true;
+                }
+            }
+            if (ispm)
+            {
+                var f = s.Substring(0, 2);
+                var aa= Convert.ToInt32(f);
+                if (aa<12)
+                {
+                    aa = aa + 12;
+                    s=s.Replace(f,aa.ToString());
+                }
+
+            }
+            if (isAm)
+            {
+                var f = s.Substring(0, 2);
+                var aa = Convert.ToInt32(f);
+                if (aa >= 12)
+                {
+                    aa = aa - 12;
+                    if (aa==0)
+                    {
+
+                        s = s.Replace(f, "0" + aa.ToString());
+                    }
+                    else
+                    {
+                        s = s.Replace(f, aa.ToString());
+                    }
+
+                }
+            }
+            var re = s.Substring(0,8);
+            return re;
         }
     }
 }
