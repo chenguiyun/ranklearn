@@ -20,16 +20,17 @@ namespace ConsoleApp1
             //int a = 1;
             //var re= ccc();
             //var aaa = tList.Select(t => t == 1 ? 0 : t).ToList();
-            var aaa=ca(tList);
-            var bbb = tList;
-            //int[][] array = new int[4][];
-            //array[0] =new []{3};
-            //array[1] = new[] { 11,2,4 };
-            //array[2] = new[] { 4,5,6 };
-            //array[3] = new[] { 10,8,-12 };
-            //diagonalDifference(array);
-            //staircase(6);
-            timeConversion("12:40:22AM");
+            //var aaa=ca(tList);
+            //var bbb = tList;
+            ////int[][] array = new int[4][];
+            ////array[0] =new []{3};
+            ////array[1] = new[] { 11,2,4 };
+            ////array[2] = new[] { 4,5,6 };
+            ////array[3] = new[] { 10,8,-12 };
+            ////diagonalDifference(array);
+            ////staircase(6);
+            //timeConversion("12:40:22AM");
+            miniMaxSum(new []{793810624,895642170,685903712,623789054,468592370});
             Console.WriteLine();
             Console.ReadKey();
         }
@@ -197,19 +198,21 @@ namespace ConsoleApp1
 
         static void miniMaxSum(int[] arr)
         {
-            var a = 0;
-            var b = 0;
-            var li = new List<int>();
-            var all = 0;
+            Int64 min = 0;
+            Int64 max = 0;
+            Int64 all = 0;
+            foreach (var a in arr)
+            {
+                all = all + a;
+            }
+            Int64[] res=new long[]{1,2,3,4,5};
             for (int i = 0; i < arr.Length; i++)
             {
-                all = all + arr[i];
-                li.Add(arr[i]);
+                res[i] = all-arr[i];
             }
-            li.Sort();
-            a = all-li[0];
-            b = all-li[li.Count-1];
-            Console.Write($"{b} {a}");
+            min = res.Min();
+            max = res.Max();
+            Console.Write($"{min} {max}");
         }
 
         static int birthdayCakeCandles(int[] ar)
