@@ -275,5 +275,24 @@ namespace ConsoleApp1
             var re = s.Substring(0,8);
             return re;
         }
+
+        static int[] gradingStudents(int[] grades)
+        {
+            /*
+             * Write your code here.
+             */
+            for (int i = 0; i < grades.Length; i++)
+            {
+                if (grades[i]>=38)
+                {
+                    var t = grades[i] % 5;
+                    if (t>=3)
+                    {
+                        grades[i] = grades[i] + 5 - t;
+                    }
+                }
+            }
+            return grades;
+        }
     }
 }
