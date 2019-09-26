@@ -30,8 +30,9 @@ namespace ConsoleApp1
             ////diagonalDifference(array);
             ////staircase(6);
             //timeConversion("12:40:22AM");
-            miniMaxSum(new []{793810624,895642170,685903712,623789054,468592370});
-            Console.WriteLine();
+            //miniMaxSum(new []{793810624,895642170,685903712,623789054,468592370});
+            var re = kangaroo(4523, 8092, 9419, 8076);
+            Console.WriteLine(re);
             Console.ReadKey();
         }
 
@@ -293,6 +294,42 @@ namespace ConsoleApp1
                 }
             }
             return grades;
+        }
+
+        //todo 未完全通过
+        static string kangaroo(int x1, int v1, int x2, int v2)
+        {
+            int x = v1;
+            int v = v2;
+            var re = "NO";
+            var x1li = new List<int>();
+            var x2li = new List<int>();
+            for (int xs = x1; xs <= 10000; xs = xs + x)
+            {
+                x1li.Add(xs);
+            }
+            for (int vs = x2; vs <= 10000; vs = vs + v)
+            {
+                x2li.Add(vs);
+            }
+            var x1nums = x1li.ToArray();
+            var x2nums = x2li.ToArray();
+            var x1len = x1nums.Length;
+            var x2len = x2nums.Length;
+            var max = Math.Min(x1len, x2len);
+            for (int i = 0; i < max; i++)
+            {
+                if (x1nums[i] == x2nums[i])
+                {
+                    re = "YES";
+                    break;
+                }
+            }
+            if (x1 < x2 && v1 <= v2)
+            {
+                re = "NO";
+            }
+            return re;
         }
     }
 }
