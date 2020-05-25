@@ -32,8 +32,30 @@ namespace ConsoleApp1
             //timeConversion("12:40:22AM");
             //miniMaxSum(new []{793810624,895642170,685903712,623789054,468592370});
             var re = kangaroo(4523, 8092, 9419, 8076);
-            Console.WriteLine(re);
+            var li = new LinkedList<int>();
+            for (int i = 0; i < 100; i++)
+            {
+                var t=new LinkedListNode<int>(i);
+                li.AddLast(t);
+                //li.AddAfter(t,i+1);
+                
+                    //else if (i>0 && i>=99)
+                //{
+                //    li.AddBefore(t, i - 1);
+                //}
+            }
+            getlinode(li.Last);
+            //Console.WriteLine(re);
             Console.ReadKey();
+        }
+
+        static void getlinode(LinkedListNode<int> t)
+        {
+            if (t!=null)
+            {
+                Console.WriteLine(t.Value);
+                getlinode(t.Previous);
+            }
         }
 
         public static IList<int> TopKFrequent(int[] nums, int k)
@@ -296,7 +318,7 @@ namespace ConsoleApp1
             return grades;
         }
 
-        //todo 未完全通过
+        //todo 鏈畬鍏ㄩ�氳繃
         static string kangaroo(int x1, int v1, int x2, int v2)
         {
             int x = v1;
