@@ -8,3 +8,4 @@
 obj
 /.vs
 /ConsoleApp1/bin/Debug/netcoreapp2.1
+/ConsoleApp1/bin/Debug/netcoreapp3.0
