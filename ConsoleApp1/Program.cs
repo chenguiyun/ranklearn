@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Globalization;
 using System.Linq;
 
@@ -31,27 +32,29 @@ namespace ConsoleApp1
             ////staircase(6);
             //timeConversion("12:40:22AM");
             //miniMaxSum(new []{793810624,895642170,685903712,623789054,468592370});
-            var re = kangaroo(4523, 8092, 9419, 8076);
-            var li = new LinkedList<int>();
-            for (int i = 0; i < 100; i++)
-            {
-                var t=new LinkedListNode<int>(i);
-                li.AddLast(t);
-                //li.AddAfter(t,i+1);
-                
-                    //else if (i>0 && i>=99)
-                //{
-                //    li.AddBefore(t, i - 1);
-                //}
-            }
-            getlinode(li.Last);
+            //var re = kangaroo(4523, 8092, 9419, 8076);
+            //var li = new LinkedList<int>();
+            //for (int i = 0; i < 100; i++)
+            //{
+            //    var t=new LinkedListNode<int>(i);
+            //    li.AddLast(t);
+            //    //li.AddAfter(t,i+1);
+
+            //        //else if (i>0 && i>=99)
+            //    //{
+            //    //    li.AddBefore(t, i - 1);
+            //    //}
+            //}
+            //getlinode(li.Last);
             //Console.WriteLine(re);
+            var re = SecMonthDay("2019", "2", "25");
+            Console.WriteLine(re);
             Console.ReadKey();
         }
 
         static void getlinode(LinkedListNode<int> t)
         {
-            if (t!=null)
+            if (t != null)
             {
                 Console.WriteLine(t.Value);
                 getlinode(t.Previous);
@@ -88,39 +91,39 @@ namespace ConsoleApp1
             return re;
         }
 
-//        public static double ccc()
-//        {
-//            var score = 0;
-//            var p = 54.55;
-//            if (p >= 80.0)
-//            {
-//                score = 10;
-//            }
-//            else if (p >= 70.0 && p < 80.0)
-//            {
-//                score = 8;
-//            }
-//            else if (p >= 60.0 && p < 70.0)
-//            {
-//                score = 6;
-//            }
-//            else if (p >= 50.0 && p < 60.0)
-//            {
-//                score = 4;
-//            }
-//            else
-//            {
-//                score = 0;
-//            }
+        //        public static double ccc()
+        //        {
+        //            var score = 0;
+        //            var p = 54.55;
+        //            if (p >= 80.0)
+        //            {
+        //                score = 10;
+        //            }
+        //            else if (p >= 70.0 && p < 80.0)
+        //            {
+        //                score = 8;
+        //            }
+        //            else if (p >= 60.0 && p < 70.0)
+        //            {
+        //                score = 6;
+        //            }
+        //            else if (p >= 50.0 && p < 60.0)
+        //            {
+        //                score = 4;
+        //            }
+        //            else
+        //            {
+        //                score = 0;
+        //            }
 
-//;
-//        }
+        //;
+        //        }
 
         delegate List<int> test(List<int> list);
 
-        private static test ca = delegate(List<int> list)
+        private static test ca = delegate (List<int> list)
         {
-            list= list.Select(t => t == 1 ? 0 : t).ToList();
+            list = list.Select(t => t == 1 ? 0 : t).ToList();
             return list;
         };
 
@@ -129,12 +132,12 @@ namespace ConsoleApp1
             var li = new List<int[]>();
             for (int i = 0; i < arr.Length; i++)
             {
-                if (arr.Length == arr[i].Length+1)
+                if (arr.Length == arr[i].Length + 1)
                 {
                     li.Add(arr[i]);
                 }
             }
-            int[][] newInts=new int[li.Count][];
+            int[][] newInts = new int[li.Count][];
             for (int i = 0; i < newInts.Length; i++)
             {
                 newInts[i] = li[i];
@@ -144,7 +147,7 @@ namespace ConsoleApp1
             {
                 for (int j = 0; j < newInts[i].Length; j++)
                 {
-                    if (i==j)
+                    if (i == j)
                     {
                         a = a + newInts[i][j];
                     }
@@ -154,11 +157,11 @@ namespace ConsoleApp1
             var c = newInts.Length - 1;
             for (int i = 0; i < newInts.Length; i++)
             {
-                b = b+newInts[i][c];
+                b = b + newInts[i][c];
                 c--;
             }
 
-            if (a>b)
+            if (a > b)
             {
                 return a - b;
             }
@@ -176,11 +179,11 @@ namespace ConsoleApp1
             var z = 0;
             foreach (var ar in arr)
             {
-                if (ar>0)
+                if (ar > 0)
                 {
                     p++;
                 }
-                else if (ar==0)
+                else if (ar == 0)
                 {
                     z++;
                 }
@@ -191,7 +194,7 @@ namespace ConsoleApp1
             }
 
             var len = Convert.ToDouble(arr.Length);
-            Console.WriteLine($"{p/len}");
+            Console.WriteLine($"{p / len}");
             Console.WriteLine($"{n / len}");
             Console.WriteLine($"{z / len}");
         }
@@ -199,10 +202,10 @@ namespace ConsoleApp1
         static void staircase(int n)
         {
             var re = "";
-            for (int i = 0; i <n+1; i++)
+            for (int i = 0; i < n + 1; i++)
             {
 
-                if (i==0)
+                if (i == 0)
                 {
                     continue;
                 }
@@ -210,7 +213,7 @@ namespace ConsoleApp1
                 {
                     re = re + " ";
                 }
-                for (int j = 0; j <i; j++)
+                for (int j = 0; j < i; j++)
                 {
                     re = re + "#";
                 }
@@ -228,10 +231,10 @@ namespace ConsoleApp1
             {
                 all = all + a;
             }
-            Int64[] res=new long[]{1,2,3,4,5};
+            Int64[] res = new long[] { 1, 2, 3, 4, 5 };
             for (int i = 0; i < arr.Length; i++)
             {
-                res[i] = all-arr[i];
+                res[i] = all - arr[i];
             }
             min = res.Min();
             max = res.Max();
@@ -256,7 +259,7 @@ namespace ConsoleApp1
             bool isAm = false;
             foreach (var g in s)
             {
-                if (g.ToString()=="P")
+                if (g.ToString() == "P")
                 {
                     ispm = true;
                 }
@@ -268,11 +271,11 @@ namespace ConsoleApp1
             if (ispm)
             {
                 var f = s.Substring(0, 2);
-                var aa= Convert.ToInt32(f);
-                if (aa<12)
+                var aa = Convert.ToInt32(f);
+                if (aa < 12)
                 {
                     aa = aa + 12;
-                    s=s.Replace(f,aa.ToString());
+                    s = s.Replace(f, aa.ToString());
                 }
 
             }
@@ -283,7 +286,7 @@ namespace ConsoleApp1
                 if (aa >= 12)
                 {
                     aa = aa - 12;
-                    if (aa==0)
+                    if (aa == 0)
                     {
 
                         s = s.Replace(f, "0" + aa.ToString());
@@ -295,7 +298,7 @@ namespace ConsoleApp1
 
                 }
             }
-            var re = s.Substring(0,8);
+            var re = s.Substring(0, 8);
             return re;
         }
 
@@ -306,10 +309,10 @@ namespace ConsoleApp1
              */
             for (int i = 0; i < grades.Length; i++)
             {
-                if (grades[i]>=38)
+                if (grades[i] >= 38)
                 {
                     var t = grades[i] % 5;
-                    if (t>=3)
+                    if (t >= 3)
                     {
                         grades[i] = grades[i] + 5 - t;
                     }
@@ -352,6 +355,76 @@ namespace ConsoleApp1
                 re = "NO";
             }
             return re;
+        }
+        //nextday
+        private static string SecMonthDay(string yearStr, string monthStr, string dayStr)
+        {
+            string resultStr = "";
+            int year = int.Parse(yearStr.Trim());
+            int month = int.Parse(monthStr.Trim());
+            int day = int.Parse(dayStr.Trim());
+            int resYear = year;
+            int resMonth = month;
+            int resDay = day;
+            if (month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12)
+            {
+                if (month == 12 && day == 31)
+                {
+                    resYear++;
+                    resMonth = 1;
+                    resDay = 1;
+                }
+                else if (day == 31)
+                {
+                    resMonth++;
+                    resDay = 1;
+                }
+                else
+                {
+                    resDay++;
+                }
+            }
+            else if (month == 2)
+            {
+                if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+                {
+                    if (day == 29)
+                    {
+                        resMonth++;
+                        resDay = 1;
+                    }
+                    else
+                    {
+                        resDay++;
+                    }
+                }
+                else
+                {
+                    if (day == 28)
+                    {
+                        resMonth++;
+                        resDay = 1;
+                    }
+                    else
+                    {
+                        resDay++;
+                    }
+                }
+            }
+            else
+            {
+                if (day == 30)
+                {
+                    resMonth++;
+                    resDay = 1;
+                }
+                else
+                {
+                    resDay++;
+                }
+            }
+            resultStr = resYear + "." + resMonth + "." + resDay;
+            return resultStr;
         }
     }
 }
