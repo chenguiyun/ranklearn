@@ -31,8 +31,18 @@ namespace ConsoleApp1
             ////staircase(6);
             //timeConversion("12:40:22AM");
             //miniMaxSum(new []{793810624,895642170,685903712,623789054,468592370});
-            var re = kangaroo(4523, 8092, 9419, 8076);
-            Console.WriteLine(re);
+            //var re = kangaroo(4523, 8092, 9419, 8076);
+            var a = new int[5];
+            for (int i= 0; i < a.Length; i++){
+                a[i] = i;
+            }
+            var re = rotLeft(a, 4);
+            var s = "";
+            foreach (var i in re)
+            {
+                s = s + " " + i;
+            }
+            Console.WriteLine(s);
             Console.ReadKey();
         }
 
@@ -330,6 +340,68 @@ namespace ConsoleApp1
                 re = "NO";
             }
             return re;
+        }
+
+        static int[] rotLeft(int[] a, int d) {
+            if (d > 0)
+            {
+                if (d >= a.Length)
+                {
+                    d = d % a.Length;
+                    if (d == 0)
+                    {
+                        return a;
+                    }
+                }
+                //减法获得
+                else if (d>1000 &&  a.Length>d)
+                {
+                    d = d % a.Length;
+                    var b = a.ToArray<int>();
+                    var c = new List<int>();
+                    var e = new List<int>();
+                    var g = new List<int>();
+                    for (int i = 0; i < d; i++) 
+                    {
+                        c.Add(a[i]);
+                    }
+                    for (int i = d; i < a.Length; i++)
+                    {
+                        e.Add(a[i]);
+                    }
+                    e.AddRange(g);
+                    e.AddRange(c);
+                    a = e.ToArray<int>();
+                    return a;
+
+                }
+                var firtstint = 0;
+                //递归调用的
+                for (int i = 0; i < a.Length; i++)
+                {
+                    if (i == 0 && a.Length >= 1 && i != a.Length - 1)
+                    {
+                        firtstint = a[i];
+                        a[i] = a[i + 1];
+                    }
+                    else if (i == a.Length - 1 && a.Length >= 1)
+                    {
+                        a[i] = firtstint;
+
+                    }
+                    else
+                    {
+                        a[i] = a[i + 1];
+                    }
+                }
+                d = d - 1;
+                return rotLeft(a, d);
+
+            }
+            else 
+            {
+                return a;
+            }
         }
     }
 }
