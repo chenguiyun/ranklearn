@@ -32,11 +32,12 @@ namespace ConsoleApp1
             //timeConversion("12:40:22AM");
             //miniMaxSum(new []{793810624,895642170,685903712,623789054,468592370});
             //var re = kangaroo(4523, 8092, 9419, 8076);
-            var a = new int[5];
-            for (int i= 0; i < a.Length; i++){
-                a[i] = i;
-            }
-            var re = rotLeft(a, 4);
+            //var a = new int[5];
+            //for (int i= 0; i < a.Length; i++){
+            //    a[i] = i;
+            //}
+            //var re = rotLeft(a, 4);
+            var re = reverseArray(new int[8] { 1,2,3,4,5,6,7,8 });
             var s = "";
             foreach (var i in re)
             {
@@ -402,6 +403,56 @@ namespace ConsoleApp1
             {
                 return a;
             }
+        }
+        static int[] reverseArray(int[] a)
+        {
+            var mid = 0;
+            if (a.Length == 1)
+            {
+                return a;
+            }
+            else if (a.Length == 2)
+            {
+                var c = a[0];
+                a[0] = a[1];
+                a[1] = c;
+            }
+            else 
+            {
+                var iso = false;
+                mid = a.Length /2;
+                if (a.Length % 2 == 0) {
+                    mid--;
+                    iso = true;
+                }
+                if (iso)
+                {
+                    var l = mid;
+                    var r = mid + 1;
+                    while (l >= 0 && r < a.Length)
+                    {
+                        var c = a[l];
+                        a[l] = a[r];
+                        a[r] = c;
+                        l--;
+                        r++;
+                    }
+                }
+                else 
+                {
+                    var l = mid -1;
+                    var r = mid + 1;
+                    while (l >= 0 && r < a.Length)
+                    {
+                        var c = a[l];
+                        a[l] = a[r];
+                        a[r] = c;
+                        l--;
+                        r++;
+                    }
+                }
+            }
+            return a;
         }
     }
 }
